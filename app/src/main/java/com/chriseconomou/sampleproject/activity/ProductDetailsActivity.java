@@ -41,7 +41,6 @@ public class ProductDetailsActivity extends BaseToolbarActivity {
         if (mProductId != null) {
             Utils.replaceFragment(this, R.id.container, ProductDetailFragment.newInstance(mProductId), ProductDetailFragment.TAG, false);
         }
-
     }
 
     private void obtainArguments() {

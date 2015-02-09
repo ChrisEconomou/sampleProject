@@ -19,19 +19,12 @@ import retrofit.RetrofitError;
  */
 public class ErrorManager {
 
-    /**
-     * Error types.
-     */
-
-
     private static final String TAG = ErrorManager.class.getSimpleName();
     private Context mContext;
 
 
     public ErrorManager(Context context) {
-
         mContext = context;
-
     }
 
 

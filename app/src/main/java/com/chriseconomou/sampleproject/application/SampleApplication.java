@@ -3,7 +3,6 @@ package com.chriseconomou.sampleproject.application;
 import android.app.Application;
 
 import com.chriseconomou.sampleproject.error.ErrorManager;
-import com.chriseconomou.sampleproject.database.PreferencesStorage;
 import com.chriseconomou.sampleproject.network.Api;
 
 import java.util.ArrayList;
@@ -18,7 +17,6 @@ public class SampleApplication extends Application {
 
     private Api mApi;
     private ErrorManager mErrorManager;
-    private PreferencesStorage mPreferencesStorage;
     private List<rx.Subscription> mSubscriptions;
 
 
@@ -27,7 +25,6 @@ public class SampleApplication extends Application {
         super.onCreate();
 
         mApi = new Api(this);
-        mPreferencesStorage = new PreferencesStorage(this);
         mSubscriptions = new ArrayList<>();
         mErrorManager = new ErrorManager(this);
     }
@@ -40,10 +37,6 @@ public class SampleApplication extends Application {
         return mApi;
     }
 
-
-    public PreferencesStorage getPreferencesStorage() {
-        return mPreferencesStorage;
-    }
 
     public ErrorManager getErrorManager() {
         return mErrorManager;

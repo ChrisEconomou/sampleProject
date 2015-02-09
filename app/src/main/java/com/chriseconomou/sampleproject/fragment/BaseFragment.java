@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 
 import com.chriseconomou.sampleproject.application.SampleApplication;
 import com.chriseconomou.sampleproject.error.ErrorManager;
-import com.chriseconomou.sampleproject.database.PreferencesStorage;
 import com.chriseconomou.sampleproject.network.Api;
 import com.chriseconomou.sampleproject.util.Utils;
 
@@ -27,7 +26,7 @@ public abstract class BaseFragment extends Fragment {
 
 
     protected Api mApi;
-    protected PreferencesStorage mPreferencesStorage;
+
     private ErrorManager mErrorManager;
     private SampleApplication mSampleApplication;
     private List<rx.Subscription> mSubscriptions;
@@ -38,7 +37,6 @@ public abstract class BaseFragment extends Fragment {
         super.onAttach(activity);
         mSampleApplication = (SampleApplication) activity.getApplication();
         mApi = mSampleApplication.getApi();
-        mPreferencesStorage = mSampleApplication.getPreferencesStorage();
         mErrorManager = mSampleApplication.getErrorManager();
         mSubscriptions = new ArrayList<>();
 

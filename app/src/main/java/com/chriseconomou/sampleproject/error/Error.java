@@ -10,7 +10,6 @@ public class Error {
     private String mErrorDescription;
 
     public Error( String errorDescription) {
-
         mErrorDescription = errorDescription;
     }
 

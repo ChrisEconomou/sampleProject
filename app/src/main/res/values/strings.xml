@@ -9,6 +9,9 @@
     <string name="shop_men">Men</string>
     <string name="shop_women">Women</string>
     <string name="add_to_bag">Add to bag</string>
+    <string name="shopping_bag">Shopping Bag</string>
+    <string name="clear_bag">Clear Bag</string>
+    <string name="bag_contains">Your bag contains %s items</string>
 
     <string name="open_drawer">Open Drawer</string>
     <string name="close_drawer">Close Drawer</string>

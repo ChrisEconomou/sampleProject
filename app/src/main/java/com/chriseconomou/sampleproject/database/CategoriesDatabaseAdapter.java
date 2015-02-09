@@ -9,7 +9,7 @@ import com.chriseconomou.sampleproject.util.GsonUtil;
 
 import java.util.List;
 /**
- * SQLite database wrapper for recently viewed parcels.
+ * SQLite database wrapper for recently categories
  */
 public class CategoriesDatabaseAdapter extends DatabaseAdapter {
 
@@ -23,16 +23,6 @@ public class CategoriesDatabaseAdapter extends DatabaseAdapter {
         open();
     }
 
-    public void update(String categoriesType, CategoriesResponse response) {
-        String[] columns = new String[]{COL_ID, COL_CATEGORY_TYPE, COL_DATA};
-        String[] select = new String[]{categoriesType};
-        Cursor cursor = getDatabase().query(RECENTLY_VIEWED_TABLE, columns, COL_CATEGORY_TYPE , select, null, null, null, "1");
-        if (cursor.getCount() > 0) {
-            delete(categoriesType);
-        }
-        insert(categoriesType, response);
-        cursor.close();
-    }
 
     private void delete(String categoriesType) {
         String[] delete = new String[]{categoriesType};

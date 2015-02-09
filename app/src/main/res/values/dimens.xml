@@ -9,5 +9,7 @@
     <dimen name="product_image_height">150dp</dimen>
     <dimen name="product_image_width">100dp</dimen>
 
+    <dimen name="bag_image_height">30dp</dimen>
+    <dimen name="bag_image_width">40dp</dimen>
     <dimen name="product_details_image_height">200dp</dimen>
 </resources>

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.chriseconomou.sampleproject.R;
 import com.chriseconomou.sampleproject.adapter.ProductsGridAdapter;
 import com.chriseconomou.sampleproject.data.ProductDetailsResponse;
+import com.chriseconomou.sampleproject.database.BagDatabaseAdapter;
 import com.chriseconomou.sampleproject.event.AddToBagEvent;
 import com.chriseconomou.sampleproject.network.controllers.GetProductDetailsListener;
 import com.squareup.picasso.Picasso;
@@ -36,6 +37,7 @@ public class ProductDetailFragment extends BaseFragment implements GetProductDet
 
     private ProductsGridAdapter mProductsGridAdapter;
 
+    private BagDatabaseAdapter mBagDatabaseAdapter;
 
     private String mProductId;
 
@@ -61,6 +63,7 @@ public class ProductDetailFragment extends BaseFragment implements GetProductDet
 
     @Override
     protected void initializeViews(Bundle savedInstanceState) {
+        mBagDatabaseAdapter = new BagDatabaseAdapter(getActivity());
         obtainArguments();
         if (mProductId != null) {
             mApi.getProductDetails(mProductId, this);
@@ -92,7 +95,7 @@ public class ProductDetailFragment extends BaseFragment implements GetProductDet
 
     private void updateData(ProductDetailsResponse productsResponse) {
         mTextBrandName.setText(productsResponse.brand);
-        if(productsResponse.productImageUrls.size()>0 && productsResponse.productImageUrls.get(0)!=null){
+        if (productsResponse.productImageUrls.size() > 0 && productsResponse.productImageUrls.get(0) != null) {
             Picasso.with(getActivity()).load(productsResponse.productImageUrls.get(0)).into(mImage);
         }
 
@@ -100,7 +103,8 @@ public class ProductDetailFragment extends BaseFragment implements GetProductDet
     }
 
     @OnClick(R.id.product_details_button_add_to_basket)
-    void addToBag(){
+    void addToBag() {
+        mBagDatabaseAdapter.addToBag(mProductId);
         EventBus.getDefault().post(new AddToBagEvent(mProductId));
     }
 }

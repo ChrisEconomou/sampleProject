@@ -9,7 +9,9 @@ import com.chriseconomou.sampleproject.database.CategoriesDatabaseAdapter;
 import com.chriseconomou.sampleproject.network.controllers.GetCategoriesMenListener;
 import com.chriseconomou.sampleproject.network.controllers.GetCategoriesWomenListener;
 
-
+/**
+ * Activity that contains tha splash screen
+ */
 public class SplashActivity extends BaseActivity implements GetCategoriesMenListener, GetCategoriesWomenListener {
 
 

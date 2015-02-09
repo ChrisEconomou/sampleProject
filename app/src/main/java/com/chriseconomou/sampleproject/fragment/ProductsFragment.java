@@ -11,10 +11,8 @@ import android.widget.Toast;
 import com.chriseconomou.sampleproject.R;
 import com.chriseconomou.sampleproject.activity.ProductDetailsActivity;
 import com.chriseconomou.sampleproject.adapter.ProductsGridAdapter;
-import com.chriseconomou.sampleproject.adapter.SampleListAdapter;
 import com.chriseconomou.sampleproject.data.Product;
 import com.chriseconomou.sampleproject.data.ProductsResponse;
-import com.chriseconomou.sampleproject.data.Result;
 import com.chriseconomou.sampleproject.event.CategoryEvent;
 import com.chriseconomou.sampleproject.network.controllers.GetProductsListener;
 

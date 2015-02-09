@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.chriseconomou.sampleproject.R;
-import com.chriseconomou.sampleproject.data.CategoryListing;
 import com.chriseconomou.sampleproject.data.Product;
 import com.squareup.picasso.Picasso;
 

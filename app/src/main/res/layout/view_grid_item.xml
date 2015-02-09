@@ -3,11 +3,9 @@
     android:orientation="vertical"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
-
     android:background="@android:color/transparent"
     android:paddingRight="@dimen/default_margin_medium"
     android:paddingLeft="@dimen/default_margin_medium"
-
     android:paddingTop="@dimen/default_margin_medium"
     android:paddingBottom="@dimen/default_margin_medium">
 

@@ -13,7 +13,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     /**
-     * Query to create recently viewed table.
+     * Query to create recently categories table.
      */
     private static final String CREATE_CATEGORIES_TABLE = "create table " + CategoriesDatabaseAdapter.RECENTLY_VIEWED_TABLE
             + " (" +
@@ -22,6 +22,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             CategoriesDatabaseAdapter.COL_CATEGORY_TYPE + " TEXT," +
 
             CategoriesDatabaseAdapter.COL_DATA + " BLOB"
+            + ");";
+
+    /**
+     * Query to create bag table.
+     */
+    private static final String CREATE_BAG_TABLE = "create table " + BagDatabaseAdapter.BAG_TABLE
+            + " (" +
+            BagDatabaseAdapter.COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+
+            BagDatabaseAdapter.COL_PRODUCT_ID + " TEXT," +
+
+            BagDatabaseAdapter.COL_PRODUCT_QUANTITY + " INTEGER"
             + ");";
 
 
@@ -33,6 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase database) {
         database.execSQL(CREATE_CATEGORIES_TABLE);
+        database.execSQL(CREATE_BAG_TABLE);
 
     }
 
