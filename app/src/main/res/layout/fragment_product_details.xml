@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="@dimen/default_margin_medium"
+        android:id="@+id/product_details_text_brand_name" />
+
+    <ImageView
+        android:id="@+id/product_details_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+
+        android:layout_marginBottom="@dimen/default_margin_medium"
+        android:id="@+id/product_details_text_description" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add to Bag"
+        android:layout_marginBottom="@dimen/default_margin_medium"
+        android:id="@+id/product_details_button_add_to_basket" />
+</LinearLayout>

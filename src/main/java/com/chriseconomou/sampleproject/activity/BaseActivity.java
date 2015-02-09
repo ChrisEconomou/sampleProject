@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 
 import com.chriseconomou.sampleproject.application.SampleApplication;
-import com.chriseconomou.sampleproject.local.PreferencesStorage;
+import com.chriseconomou.sampleproject.database.PreferencesStorage;
 import com.chriseconomou.sampleproject.util.Utils;
 
 import butterknife.ButterKnife;

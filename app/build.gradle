@@ -1,5 +1,6 @@
 buildscript {
     repositories {
+
         jcenter()
     }
 }
@@ -18,7 +19,7 @@ android {
 
     defaultConfig {
         applicationId "com.chriseconomou.sampleproject"
-        minSdkVersion 10
+        minSdkVersion 14
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
@@ -32,7 +33,7 @@ android {
 }
 
 dependencies {
-
+    compile 'de.greenrobot:eventbus:2.4.0'
     compile 'com.android.support:appcompat-v7:21.0.2'
     compile 'com.squareup.retrofit:retrofit:1.8.0'
     compile 'com.jakewharton:butterknife:6.0.0'
@@ -43,5 +44,6 @@ dependencies {
     compile 'com.squareup.okio:okio:1.0.1'
     compile 'com.netflix.rxjava:rxjava-core:0.+'
     compile 'com.netflix.rxjava:rxjava-android:0.20.6'
-
+    compile 'com.android.support:support-v4:21.0.2'
+    compile project(':viewPagerIndicator')
 }

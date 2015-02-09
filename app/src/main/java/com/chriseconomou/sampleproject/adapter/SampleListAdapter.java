@@ -55,10 +55,6 @@ public class SampleListAdapter extends ArrayAdapter<Result> {
         Result result = getItem(position);
         viewHolder.mItemTextName.setText(result.name);
         String url = result.url;
-        if (url != null) {
-            Picasso.with(getContext()).load(url).into(viewHolder.mItemImage);
-
-        }
     }
 
     /**
@@ -69,8 +65,6 @@ public class SampleListAdapter extends ArrayAdapter<Result> {
     static class ViewHolder {
         @InjectView(R.id.item_text_name)
         TextView mItemTextName;
-        @InjectView(R.id.item_image)
-        ImageView mItemImage;
 
         ViewHolder(View view) {
             ButterKnife.inject(this, view);

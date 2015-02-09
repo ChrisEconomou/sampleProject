@@ -1,4 +1,4 @@
-package  com.chriseconomou.sampleproject.activity;
+package com.chriseconomou.sampleproject.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,9 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 
 import com.chriseconomou.sampleproject.application.SampleApplication;
-import com.chriseconomou.sampleproject.local.PreferencesStorage;
+import com.chriseconomou.sampleproject.error.ErrorManager;
+import com.chriseconomou.sampleproject.database.PreferencesStorage;
+import com.chriseconomou.sampleproject.network.Api;
 import com.chriseconomou.sampleproject.util.Utils;
 
 import butterknife.ButterKnife;
@@ -16,7 +18,9 @@ import butterknife.ButterKnife;
  */
 public abstract class BaseActivity extends ActionBarActivity {
 
+    protected Api mApi;
     protected PreferencesStorage mPreferenceStorage;
+    private ErrorManager mErrorManager;
 
 
     @Override
@@ -28,6 +32,8 @@ public abstract class BaseActivity extends ActionBarActivity {
         ButterKnife.inject(this);
         SampleApplication app = ((SampleApplication) getApplication());
         mPreferenceStorage = app.getPreferencesStorage();
+        mApi = app.getApi();
+        mErrorManager = app.getErrorManager();
     }
 
     protected abstract int getLayoutId();
@@ -61,5 +67,8 @@ public abstract class BaseActivity extends ActionBarActivity {
         Utils.replaceFragment(this, containerId, fragment, fragmentTag, true);
     }
 
+    public void handleError(Throwable throwable) {
+        mErrorManager.handleError(mErrorManager.getError(throwable), this);
+    }
 }
 

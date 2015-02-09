@@ -3,7 +3,7 @@ package com.chriseconomou.sampleproject.application;
 import android.app.Application;
 
 import com.chriseconomou.sampleproject.error.ErrorManager;
-import com.chriseconomou.sampleproject.local.PreferencesStorage;
+import com.chriseconomou.sampleproject.database.PreferencesStorage;
 import com.chriseconomou.sampleproject.network.Api;
 
 import java.util.ArrayList;

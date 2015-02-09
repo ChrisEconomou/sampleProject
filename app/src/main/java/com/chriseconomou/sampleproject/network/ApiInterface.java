@@ -1,11 +1,16 @@
 package com.chriseconomou.sampleproject.network;
 
 
+import com.chriseconomou.sampleproject.data.CategoriesResponse;
+import com.chriseconomou.sampleproject.data.ProductDetailsResponse;
+import com.chriseconomou.sampleproject.data.ProductsResponse;
 import com.chriseconomou.sampleproject.data.Response;
 
 import retrofit.http.GET;
 import retrofit.http.Header;
 import retrofit.http.Headers;
+import retrofit.http.Path;
+import retrofit.http.Query;
 import rx.Observable;
 
 
@@ -15,9 +20,15 @@ import rx.Observable;
 public interface ApiInterface {
 
 
-    @GET("/Test")
-    @Headers("Content-Type: application/json")
-    Observable<Response> getTests(@Header("X-Parse-REST-API-Key") String apiKey, @Header("X-Parse-Application-Id") String applicationId);
 
+    @GET("/{categoryType}")
+    Observable<CategoriesResponse> getCategories(@Path("categoryType") String categoryType);
+
+    @GET("/anycat_products.json")
+    Observable<ProductsResponse> getProducts(@Query("catid") String catid);
+
+
+    @GET("/anyproduct_details.json")
+    Observable<ProductDetailsResponse> getProductDetails(@Query("catid") String producatId);
 
 }

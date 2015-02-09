@@ -4,7 +4,14 @@ import android.content.Context;
 import android.util.Log;
 
 import com.chriseconomou.sampleproject.R;
+import com.chriseconomou.sampleproject.data.CategoriesResponse;
+import com.chriseconomou.sampleproject.data.ProductDetailsResponse;
+import com.chriseconomou.sampleproject.data.ProductsResponse;
 import com.chriseconomou.sampleproject.data.Response;
+import com.chriseconomou.sampleproject.network.controllers.GetCategoriesMenListener;
+import com.chriseconomou.sampleproject.network.controllers.GetCategoriesWomenListener;
+import com.chriseconomou.sampleproject.network.controllers.GetProductDetailsListener;
+import com.chriseconomou.sampleproject.network.controllers.GetProductsListener;
 import com.squareup.okhttp.OkHttpClient;
 
 import java.util.concurrent.TimeUnit;
@@ -69,17 +76,118 @@ public class Api {
                 .build();
     }
 
-    /**
-     * @param listener the listener that will be called when we get the response back
-     * @return the list of Test objects.
-     */
 
-    public Subscription getData(Observer<Response> listener) {
-        Observable<Response> observable = mApiInterface.getTests(mApiKey, mApplicationId);
-        return observable.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread()).subscribe(listener);
+    public Subscription getCategoriesMen(final GetCategoriesMenListener listener) {
+        Observable<CategoriesResponse> observable = mApiInterface.getCategories(mContext.getString(R.string.categories_men_file));
+
+        Subscription subscription = observable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new EndObserver<CategoriesResponse>() {
+                    @Override
+                    public void onCompleted() {
+                        listener.onEnd();
+                    }
+
+                    @Override
+                    public void onError(Throwable throwable) {
+                        listener.onGetCategoriesMenError(throwable);
+                        listener.onEnd();
+                    }
+
+                    @Override
+                    public void onNext(CategoriesResponse response) {
+                        listener.onGetCategoriesMenSuccesful(response);
+
+                    }
+                });
+
+        return subscription;
 
     }
 
+    public Subscription getCategoriesWomen(final GetCategoriesWomenListener listener) {
+        Observable<CategoriesResponse> observable = mApiInterface.getCategories(mContext.getString(R.string.categories_women_file));
+
+        Subscription subscription = observable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new EndObserver<CategoriesResponse>() {
+                    @Override
+                    public void onCompleted() {
+                        listener.onEnd();
+                    }
+
+                    @Override
+                    public void onError(Throwable throwable) {
+                        listener.onGetCategoriesWomenError(throwable);
+                        listener.onEnd();
+                    }
+
+                    @Override
+                    public void onNext(CategoriesResponse response) {
+                        listener.onGetCategoriesWomenSuccesful(response);
+
+                    }
+                });
+
+        return subscription;
+
+    }
+
+
+    public Subscription getProducts(String categoryId, final GetProductsListener listener) {
+        Observable<ProductsResponse> observable = mApiInterface.getProducts(categoryId);
+
+        Subscription subscription = observable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new EndObserver<ProductsResponse>() {
+                    @Override
+                    public void onCompleted() {
+                        listener.onEnd();
+                    }
+
+                    @Override
+                    public void onError(Throwable throwable) {
+                        listener.onGetProductsError(throwable);
+                        listener.onEnd();
+                    }
+
+                    @Override
+                    public void onNext(ProductsResponse response) {
+                        listener.onGetProductsSuccesful(response);
+
+                    }
+                });
+
+        return subscription;
+
+    }
+
+    public Subscription getProductDetails(String productId, final GetProductDetailsListener listener) {
+        Observable<ProductDetailsResponse> observable = mApiInterface.getProductDetails(productId);
+
+        Subscription subscription = observable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new EndObserver<ProductDetailsResponse>() {
+                    @Override
+                    public void onCompleted() {
+                        listener.onEnd();
+                    }
+
+                    @Override
+                    public void onError(Throwable throwable) {
+                        listener.onGetProductDetailsError(throwable);
+                        listener.onEnd();
+                    }
+
+                    @Override
+                    public void onNext(ProductDetailsResponse response) {
+                        listener.onGetProductDetailsSuccesful(response);
+
+                    }
+                });
+
+        return subscription;
+
+    }
 
 }

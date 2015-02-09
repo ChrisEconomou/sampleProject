@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.chriseconomou.sampleproject.application.SampleApplication;
 import com.chriseconomou.sampleproject.error.ErrorManager;
-import com.chriseconomou.sampleproject.local.PreferencesStorage;
+import com.chriseconomou.sampleproject.database.PreferencesStorage;
 import com.chriseconomou.sampleproject.network.Api;
 import com.chriseconomou.sampleproject.util.Utils;
 

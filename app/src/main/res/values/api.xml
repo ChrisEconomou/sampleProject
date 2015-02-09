@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="api_url">https://api.parse.com/1/classes</string>
+    <string name="api_url">https://dl.dropboxusercontent.com/u/1559445/ASOS/SampleApi</string>
     <string name="parse_api_key">NRjIFeWJlllr7nFghSkrApcny6kAMTasHLwUkrH7</string>
     <string name="application_id">"EWJHy4NN5QSONqAovDRb1uqlGZtokTW96okGTwMb"</string>
     <string name="click_n_collect_content_type_json">application/json</string>
 
     <string name="webApi_httpReadTimeout">10000</string>
     <string name="webApi_httpConnectTimeout">10000</string>
+
+    <string name="categories_men_file">cats_men.json</string>
+    <string name="categories_women_file">cats_women.json</string>
 </resources>
