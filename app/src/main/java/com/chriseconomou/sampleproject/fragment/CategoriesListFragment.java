@@ -1,7 +1,9 @@
 package com.chriseconomou.sampleproject.fragment;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -10,16 +12,14 @@ import com.chriseconomou.sampleproject.R;
 import com.chriseconomou.sampleproject.adapter.CategoriesListAdapter;
 import com.chriseconomou.sampleproject.data.CategoryListing;
 import com.chriseconomou.sampleproject.database.CategoriesDatabaseAdapter;
-import com.chriseconomou.sampleproject.event.CategoryEvent;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.InjectView;
-import de.greenrobot.event.EventBus;
 
 
-public class CategoriesListFragment extends BaseFragment implements AdapterView.OnItemClickListener{
+public class CategoriesListFragment extends BaseFragment implements AdapterView.OnItemClickListener {
 
     public static final String TAG = CategoriesListFragment.class.getSimpleName();
 
@@ -36,6 +36,8 @@ public class CategoriesListFragment extends BaseFragment implements AdapterView.
 
     private CategoriesDatabaseAdapter mCategoriesDatabaseAdapter;
 
+    private NavigationDrawerFragment.NavigationDrawerCallbacks mNavigationDrawerCallbacks;
+
     public static final CategoriesListFragment newInstance(String type) {
         CategoriesListFragment fragment = new CategoriesListFragment();
         Bundle bundle = new Bundle();
@@ -44,6 +46,15 @@ public class CategoriesListFragment extends BaseFragment implements AdapterView.
         return fragment;
     }
 
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            mNavigationDrawerCallbacks = (NavigationDrawerFragment.NavigationDrawerCallbacks) activity;
+        } catch (ClassCastException e) {
+            Log.e(TAG, "Calling activity needs to implement " + NavigationDrawerFragment.NavigationDrawerCallbacks.class.getSimpleName() + " interface");
+        }
+    }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -85,6 +96,6 @@ public class CategoriesListFragment extends BaseFragment implements AdapterView.
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        EventBus.getDefault().post(new CategoryEvent(mResultList.get(i).categoryId));
+        mNavigationDrawerCallbacks.onNavigationDrawerItemSelected(mResultList.get(i).categoryId);
     }
 }

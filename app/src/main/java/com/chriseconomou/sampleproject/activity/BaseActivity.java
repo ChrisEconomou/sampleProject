@@ -40,17 +40,11 @@ public abstract class BaseActivity extends ActionBarActivity {
 
     protected abstract void initializeViews(Bundle savedInstanceState);
 
-    protected void startActivity(Class classOfActivity) {
-        startActivity(classOfActivity, null, false);
-    }
 
     protected void startActivity(Class classOfActivity, boolean newTask) {
         startActivity(classOfActivity, null, newTask);
     }
 
-    protected void startActivity(Class classOfActivity, Bundle bundle) {
-        startActivity(classOfActivity, bundle, false);
-    }
 
     protected void startActivity(Class classOfActivity, Bundle bundle, boolean newTask) {
         Intent intent = new Intent(this, classOfActivity);

@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.chriseconomou.sampleproject.R;
 import com.chriseconomou.sampleproject.data.CategoriesResponse;
 import com.chriseconomou.sampleproject.database.CategoriesDatabaseAdapter;
-import com.chriseconomou.sampleproject.fragment.MainFragment;
+
 import com.chriseconomou.sampleproject.network.controllers.GetCategoriesMenListener;
 import com.chriseconomou.sampleproject.network.controllers.GetCategoriesWomenListener;
 
@@ -82,7 +82,7 @@ public class SplashActivity extends BaseActivity implements GetCategoriesMenList
         startActivity(MainActivity.class, true);
     }
 
-    private void saveCategory(CategoriesResponse categoriesResponse){
-        mCategoriesDatabaseAdapter.insert(categoriesResponse.description,categoriesResponse);
+    private void saveCategory(CategoriesResponse categoriesResponse) {
+        mCategoriesDatabaseAdapter.insert(categoriesResponse.description, categoriesResponse);
     }
 }

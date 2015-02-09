@@ -13,11 +13,13 @@
 
     <ImageView
         android:id="@+id/grid_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_gravity="center"
+        android:layout_width="@dimen/product_image_width"
+        android:layout_height="@dimen/product_image_height" />
 
     <TextView
         style="@+id/TextStyle"
+        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"

@@ -10,10 +10,13 @@ import android.widget.TextView;
 import com.chriseconomou.sampleproject.R;
 import com.chriseconomou.sampleproject.adapter.ProductsGridAdapter;
 import com.chriseconomou.sampleproject.data.ProductDetailsResponse;
+import com.chriseconomou.sampleproject.event.AddToBagEvent;
 import com.chriseconomou.sampleproject.network.controllers.GetProductDetailsListener;
 import com.squareup.picasso.Picasso;
 
 import butterknife.InjectView;
+import butterknife.OnClick;
+import de.greenrobot.event.EventBus;
 
 
 public class ProductDetailFragment extends BaseFragment implements GetProductDetailsListener {
@@ -41,7 +44,7 @@ public class ProductDetailFragment extends BaseFragment implements GetProductDet
         Bundle bundle = new Bundle();
         bundle.putString(ARG_PRODUCT_ID, productId);
         fragment.setArguments(bundle);
-        return new ProductDetailFragment();
+        return fragment;
     }
 
     @Override
@@ -80,7 +83,6 @@ public class ProductDetailFragment extends BaseFragment implements GetProductDet
     @Override
     public void onGetProductDetailsSuccesful(ProductDetailsResponse productsResponse) {
         updateData(productsResponse);
-
     }
 
     @Override
@@ -95,5 +97,10 @@ public class ProductDetailFragment extends BaseFragment implements GetProductDet
         }
 
         mTextDescription.setText(productsResponse.additionalInfo);
+    }
+
+    @OnClick(R.id.product_details_button_add_to_basket)
+    void addToBag(){
+        EventBus.getDefault().post(new AddToBagEvent(mProductId));
     }
 }

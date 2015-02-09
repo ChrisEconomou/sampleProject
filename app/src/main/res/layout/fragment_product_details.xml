@@ -1,32 +1,34 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <TextView
+        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
+        android:gravity="center"
         android:layout_height="wrap_content"
-
         android:layout_marginBottom="@dimen/default_margin_medium"
         android:id="@+id/product_details_text_brand_name" />
 
     <ImageView
+        android:layout_below="@+id/product_details_text_brand_name"
         android:id="@+id/product_details_image"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="@dimen/product_details_image_height"
+        android:layout_margin="@dimen/default_margin_medium" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-
-        android:layout_marginBottom="@dimen/default_margin_medium"
-        android:id="@+id/product_details_text_description" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/product_details_image"
+        android:layout_margin="@dimen/default_margin_medium"
+        android:id="@+id/product_details_text_description"
+        />
 
     <Button
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add to Bag"
-        android:layout_marginBottom="@dimen/default_margin_medium"
+        android:text="@string/add_to_bag"
         android:id="@+id/product_details_button_add_to_basket" />
-</LinearLayout>
+</RelativeLayout>

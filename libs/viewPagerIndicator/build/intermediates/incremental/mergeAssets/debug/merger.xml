@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/christosoikonomou/github/sampleProject/libs/viewPagerIndicator/assets"/></dataSet><dataSet config="debug"><source path="/Users/christosoikonomou/github/sampleProject/libs/viewPagerIndicator/build-types/debug/assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/oikonomouc/github/sampleProject/libs/viewPagerIndicator/assets"/></dataSet><dataSet config="debug"><source path="/Users/oikonomouc/github/sampleProject/libs/viewPagerIndicator/build-types/debug/assets"/></dataSet></merger>
