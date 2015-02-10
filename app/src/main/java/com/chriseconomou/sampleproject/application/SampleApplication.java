@@ -25,7 +25,7 @@ public class SampleApplication extends Application {
         super.onCreate();
 
         mApi = new Api(this);
-        mSubscriptions = new ArrayList<>();
+        mSubscriptions = new ArrayList<rx.Subscription>();
         mErrorManager = new ErrorManager(this);
     }
 
@@ -37,6 +37,9 @@ public class SampleApplication extends Application {
         return mApi;
     }
 
+    public void setApi(Api api) {
+        mApi = api;
+    }
 
     public ErrorManager getErrorManager() {
         return mErrorManager;

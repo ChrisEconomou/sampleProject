@@ -38,6 +38,17 @@ android {
     robolectric {
         include '**/*Test.class'
     }
+
+    productFlavors {
+        robolectric {
+            targetSdkVersion 18
+        }
+        dev {
+            targetSdkVersion 21
+        }
+
+    }
+
 }
 
 dependencies {

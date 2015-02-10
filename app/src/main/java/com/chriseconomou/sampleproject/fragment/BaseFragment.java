@@ -38,7 +38,7 @@ public abstract class BaseFragment extends Fragment {
         mSampleApplication = (SampleApplication) activity.getApplication();
         mApi = mSampleApplication.getApi();
         mErrorManager = mSampleApplication.getErrorManager();
-        mSubscriptions = new ArrayList<>();
+        mSubscriptions = new ArrayList<rx.Subscription>();
 
     }
 
