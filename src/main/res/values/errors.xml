@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Errors -->
-    <string name="error_network_message">We\'re sorry, but can\'t find an Internet connection right now</string>
-    <string name="error_default_message">Something\'s not quite right here. %s</string>
-    <string name="error_invalid_grant">The combination of your email and password is incorrect</string>
-
-
-</resources>

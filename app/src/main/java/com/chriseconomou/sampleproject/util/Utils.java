@@ -49,6 +49,19 @@ public class Utils {
     }
 
 
+    public static void addFragment(FragmentActivity fragmentActivity, int containerId, Fragment fragment, String fragmentTag, boolean hasAnimation) {
+        if (hasAnimation) {
+            createFragmentTransaction(fragmentActivity).add(containerId, fragment, fragmentTag).commit();
+        } else {
+            createSimpleFragmentTansaction(fragmentActivity).add(containerId, fragment, fragmentTag).commit();
+
+        }
+
+    }
+
+    public static void addFragment(FragmentActivity fragmentActivity, Fragment fragment, String fragmentTag) {
+        createFragmentTransaction(fragmentActivity).add(fragment, fragmentTag).commit();
+    }
     private static FragmentTransaction createFragmentTransaction(FragmentActivity fragmentActivity) {
 
         FragmentTransaction fragmentTransaction = createSimpleFragmentTansaction(fragmentActivity);
